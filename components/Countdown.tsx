@@ -87,53 +87,23 @@ useEffect(() => {
           Countdown to Valentine's Day at 
         </motion.p>
 
-        <motion.div
-          className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-12 justify-center"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true }}
-        >
-          <TimeUnit value={timeLeft.days} label="Days" />
-          <TimeUnit value={timeLeft.hours} label="Hours" />
-          <TimeUnit value={timeLeft.minutes} label="Minutes" />
-          <TimeUnit value={timeLeft.seconds} label="Seconds" />
-        </motion.div>
+       
 
-              <motion.div
+          <motion.div
           className="relative w-full h-[500px] md:h-64 rounded-2xl overflow-hidden shadow-xl"
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.3 }}
           viewport={{ once: true }}
         >
-          {isTimeUp ? (
-            // SHOW IMAGE AFTER COUNTDOWN
+       
             <Image
               src="/photos/special.png"   // place your image here
               alt="Special surprise"
               fill
-              className="object-cover"
+              className="object-contain"
             />
-          ) : (
-            // SHOW TEXT BEFORE COUNTDOWN ENDS
-            <>
-              <div className="absolute inset-0 bg-gradient-to-br from-rose-400 via-pink-300 to-red-400 blur-3xl" />
-              <div className="absolute inset-0 bg-rose-100 opacity-40" />
-
-              <motion.div
-                className="absolute inset-0 flex items-center justify-center"
-                whileHover={{ scale: 1.02 }}
-              >
-                <div className="text-center">
-                  <p className="font-display text-3xl md:text-4xl text-rose-600 mb-2">🎁</p>
-                  <p className="text-rose-700 font-poppins text-lg md:text-xl font-light">
-                    Something special waiting for you...
-                  </p>
-                </div>
-              </motion.div>
-            </>
-          )}
+         
         </motion.div>
 
       </div>
