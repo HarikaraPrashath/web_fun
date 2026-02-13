@@ -21,7 +21,7 @@ const memories = [
     caption: 'Every moment with you is my favorite memory',
   },
   {
-    image: '/photos/photos5.jpeg',
+    image: '/photos/photo5.jpeg',
     caption: 'Dancing in the kitchen like nobody\'s watching',
   },
   {
