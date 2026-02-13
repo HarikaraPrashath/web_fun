@@ -90,7 +90,7 @@ useEffect(() => {
        
 
           <motion.div
-          className="relative w-full h-[800px] md:h-64 rounded-2xl overflow-hidden "
+          className="relative w-full h-[340px] md:h-[500px] rounded-2xl overflow-hidden "
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.3 }}
