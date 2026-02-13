@@ -28,7 +28,7 @@ export function Footer() {
           >
             <span className="text-2xl">❤️</span>
             <p className="font-poppins text-sm text-rose-600 font-light">
-              Made with love & Next.js for the love of my life
+              Made with love & pleasure for the love of my life
             </p>
             <span className="text-2xl">❤️</span>
           </motion.div>
