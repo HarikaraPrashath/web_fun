@@ -20,29 +20,35 @@ export function Countdown() {
   })
   const [isTimeUp, setIsTimeUp] = useState(false)
 
-  useEffect(() => {
-    const calculateTimeLeft = () => {
-      const targetDate = new Date('2026-02-14T18:00:00').getTime()
-      const now = new Date().getTime()
-      const difference = targetDate - now
+useEffect(() => {
+  const calculateTimeLeft = () => {
+    const now = new Date()
+    // Set target to midnight of next day
+    const targetDate = new Date()
+    targetDate.setHours(24, 0, 0, 0) // 24:00 today = midnight
 
-      if (difference > 0) {
-        setTimeLeft({
-          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-          hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-          minutes: Math.floor((difference / 1000 / 60) % 60),
-          seconds: Math.floor((difference / 1000) % 60),
-        })
-      } else {
-        setIsTimeUp(true)
-      }
+    const difference = targetDate.getTime() - now.getTime()
+
+    if (difference > 0) {
+      setTimeLeft({
+        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+        minutes: Math.floor((difference / 1000 / 60) % 60),
+        seconds: Math.floor((difference / 1000) % 60),
+      })
+      setIsTimeUp(false)
+    } else {
+      setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 })
+      setIsTimeUp(true)
     }
+  }
 
-    calculateTimeLeft()
-    const timer = setInterval(calculateTimeLeft, 1000)
+  calculateTimeLeft()
+  const timer = setInterval(calculateTimeLeft, 1000)
 
-    return () => clearInterval(timer)
-  }, [])
+  return () => clearInterval(timer)
+}, [])
+
 
   const TimeUnit = ({ value, label }: { value: number; label: string }) => (
     <motion.div className="flex flex-col items-center" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
